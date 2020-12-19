@@ -70,7 +70,9 @@ class Role
 
     public function removeUser(User $user): self
     {
-        $this->users->removeElement($user);
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+        }
 
         return $this;
     }

@@ -83,6 +83,12 @@ class Ad
      */
     private $images;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="ads")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -96,7 +102,7 @@ class Ad
      * 
      * @return void
      */
-    public function initSlug() {
+    public function initializeSlug() {
         if(empty($this->slug)) {
             $slugify = new Slugify();
             $this->slug = $slugify->slugify($this->name);
@@ -248,12 +254,25 @@ class Ad
 
     public function removeImage(Image $image): self
     {
-        if ($this->images->removeElement($image)) {
+        if ($this->images->contains($image)) {
+            $this->images->removeElement($image);
             // set the owning side to null (unless already changed)
             if ($image->getAd() === $this) {
                 $image->setAd(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

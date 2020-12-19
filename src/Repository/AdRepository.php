@@ -19,6 +19,17 @@ class AdRepository extends ServiceEntityRepository
         parent::__construct($registry, Ad::class);
     }
 
+    public function findLastAds($limit)
+    {
+        return $this->createQueryBuilder('a')
+                    ->select('a as annonce')
+                    ->orderBy('annonce', 'DESC')
+                    ->setMaxResults($limit)
+                    ->getQuery()
+                    ->getResult();
+    }
+
+
     // /**
     //  * @return Ad[] Returns an array of Ad objects
     //  */

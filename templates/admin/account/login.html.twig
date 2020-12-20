@@ -1,37 +1,53 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Connexion au site{% endblock %}
-
-{% block body %}
-
-<div class="container">
-
-    <div class="row">
-        <div class="col-md-3">&nbsp;</div>
-        <div class="col-md-6">
-            <div class="bg-light py-3 px-3">
-                <h1>Connectez vous</h1>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion à l'administration</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+        .card {
+            margin-top: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="col-md-4">
+        <div class="card bg-light">
+            <div class="card-header">
+                <h4 class="card-title">
+                    <i class="fas fa-lock"></i>
+                    Connexion à l'administration
+                </h4>
+            </div>
+            <div class="card-body">
                 {% if hasError %}
-                    <div class="alert alert-danger">l'email ou le mot de passe est incorrect</div>
+                    <div class="alert alert-warning">
+                        <p>Les informations que vous avez fourni ne sont pas bonnes.</p>
+                    </div>
                 {% endif %}
-
-                <form action="{{ path('account_login') }}" method="post">
+                <form method="post">
+                    <div class="form-group"><label for="_username">Email</label><input type="text" class="form-control" placeholder="Adresse email" name="_username" value="{{ username }}"></div>
+                    <div class="form-group"><label for="_password">Mot de passe</label><input type="password" class="form-control" placeholder="Mote de passe" name="_password"></div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" name="_username" id="email" class="form-control" placeholder="Adresse email" required value="{{username}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Mot de passe</label>
-                        <input type="password" name="_password" id="password" placeholder="Mot de passe" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success">Connexion</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-lock-open"></i>
+                            Connexion
+                        </button>
+                        <a href="{{ path('homepage') }}" class="btn btn-link">
+                            <i class="fas fa-arrow-circle-left"></i>
+                            Retour au site
+                        </a>
                     </div>
                 </form>
             </div>
         </div>
-    </div>  
-</div>
-
-{% endblock %}
+    </div>
+</body>
+</html>

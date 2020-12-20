@@ -15,12 +15,36 @@ class HomeController extends AbstractController {
      */
     public function home(AdRepository $adRepo, UserRepository $userRepo){
 
-       return $this->render(
-           'home.html.twig',
+        return $this->render(
+            'home.html.twig',
             [
                 'ads' => $adRepo->findLastAds(3),
                 'users' => $userRepo->findBestUsers(2)
             ]
+        );
+    }
+
+    /**
+     * @Route("/hosting", name="hosting")
+     *
+     * @return void
+     */
+    public function hosting()
+    {
+        return $this->render(
+            'hosting.html.twig'
+        );
+    }
+
+    /**
+     * @Route("/us", name="us")
+     *
+     * @return void
+     */
+    public function us()
+    {
+        return $this->render(
+            'us.html.twig'
         );
     }
 }

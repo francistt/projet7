@@ -9,7 +9,7 @@
             <div class="col-3 text-center mt-3">
                 <img src="{{user.picture}}" class="avatar mb-3" alt="Avatar de {{user.fullName}}">
                 <br>
-                <span class="badge badge-primary">{{user.ads | length}} annonces</span>
+                <span class="badge badge-info">{{user.ads | length}} annonces</span>
             </div>
             <div class="col-9">
                 <h1>{{user.fullName}}</h1>
@@ -23,7 +23,8 @@
         </div>
 
         {{user.description | raw}}
-
+        <a href="mailto:{{user.email}}" class="btn btn-info">{{user.email}}</a>
+        <a href="tel:{{user.phone}}" class="btn btn-info">{{user.phone}}</a>
         <hr>
 
         <h2>Les annonces de {{user.fullName}}</h2>

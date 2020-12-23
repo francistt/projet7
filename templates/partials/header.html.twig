@@ -1,6 +1,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
-            <a class="navbar-brand" href="{{ path('homepage') }}">Europe4strays</a>
+            <a class="navbar-brand" href="{{ path('homepage') }}">
+            <img src="{{ asset('assets/img/favicon.ico') }}" height="22px" alt="icone">
+            Europe4strays</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -9,23 +11,23 @@
             <div class="collapse navbar-collapse" id="navbarColor03">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('homepage') }}">Accueil</a>
+                        <a class="btn btn-secondary" href="{{ path('homepage') }}">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('us') }}">Qui sommes nous ?
+                        <a class="btn btn-secondary" href="{{ path('us') }}">Qui sommes nous ?
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('ads_index') }}">Nos annonces</a>
+                        <a class="btn btn-secondary" href="{{ path('ads_index') }}">Nos annonces</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('hosting') }}">Devenir famille d'acueil</a>
+                        <a class="btn btn-secondary" href="{{ path('hosting') }}">Devenir famille d'acueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="btn btn-secondary" href="{{ path('contact') }}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://europe4strays.jimdofree.com/donate/">Faire un don</a>
+                        <a class="btn btn-secondary" href="https://europe4strays.jimdofree.com/donate/">Faire un don</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">

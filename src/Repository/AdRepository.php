@@ -23,7 +23,7 @@ class AdRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
                     ->select('a as annonce')
-                    ->orderBy('annonce', 'DESC')
+                    ->orderBy('a.id', 'DESC')
                     ->setMaxResults($limit)
                     ->getQuery()
                     ->getResult();

@@ -19,15 +19,6 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
-    public function findBestUsers($limit)
-    {
-        return $this->createQueryBuilder('u')
-                    ->select('u as user')
-                    ->orderBy('user', 'DESC')
-                    ->setMaxResults($limit)
-                    ->getQuery()
-                    ->getResult();
-    }
     // /**
     //  * @return User[] Returns an array of User objects
     //  */

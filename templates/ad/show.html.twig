@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ad.name}}
+  {{ad.name}}
 {% endblock %}
 
 {% block body %}
@@ -9,11 +9,10 @@
 <div class="ad-title" style="background-image: url({{ ad.coverImage }})">
     <div class="container">
         <h1>{{ad.name}}</h1>
-        <p>{{ad.introduction}}</p>
         <p class="h3">
             <strong>{{ad.type}},</strong><strong> de {{ad.age}} ans</strong>
         </p>
-        <a href="#" class="btn btn-primary">Nous contacter</a>
+        <a href="{{ path('contact') }}" class="btn btn-primary">Nous contacter</a>
         {% if app.user and app.user == ad.author %}
         <a href="{{ path('ads_edit', {'slug': ad.slug}) }}" class="btn btn-secondary">Modifier l'annonce</a>
         
@@ -24,7 +23,6 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 mb-3">
-            {{ ad.content | raw }}
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     {% for image in ad.images %}
@@ -37,7 +35,6 @@
                             <img src="{{ image.url }}" class="d-block w-100" alt="Firstslide">
                             <div class="carousel-caption d-none d-md-block">
                                 <h2>{{ ad.name }}</h2>
-                                <p>{{ad.introduction}}</p>
                             </div>
                         </div>
                     {% endfor %}
@@ -51,6 +48,9 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+                <h1>{{ad.name}}</h1>
+                <p>{{ad.introduction}}</p>
+                {{ ad.content | raw }}
         </div>
 
         <div class="card border-info mb-3" style="max-width: 20rem;">

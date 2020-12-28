@@ -4,21 +4,41 @@
     Bienvenue
 {% endblock %}
 
-{% block header %}
-    <h2><voici le header</h2>
-{% endblock %}
-
-{% block body %} 
-<div class="container">
+{% block content %} 
     <div class="jumbotron mt-3">
-        <h1 class="display-4" id="mainTitle">Bienvenue sur Europe4strays</h1>
-        <p class="lead">Nous mettons en relation les animaux en attente d'adoption</p>
-        <hr class="my-4">
-        <p>Vous êtes dans l'attente d'un compagon ?</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="{{ path('ads_index') }}" role="button">Voir nos annonces</a>
-        </p>
+        <div class="home-title" style="background-image: url({{ asset('assets/img/home.jpg') }})">
+            <h1 class="display-4" id="mainTitle">Bienvenue sur Europe4strays</h1>
+            <h2><p class="lead mb-4">Nous mettons en relation les animaux en attente d'adoption</p></h2>
+            <p>Vous êtes dans l'attente d'un compagon ?</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{{ path('ads_index') }}" role="button">Voir nos annonces</a>
+            </p>
+        </div>
     </div>
+<div class="container">
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">Nous accueillons les chiens errants</h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+            <img src="{{ asset('assets/img/first.jpg') }}" class="img-fluid" alt="Un savoir-faire Français">
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Vous êtes une association, vous pouvez mettre vos annonces ici</h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img src="{{ asset('assets/img/second.jpg') }}" class="img-fluid" alt="Une boutique ouverte toute l'année">
+        </div>
+    </div>
+
+    <hr>
 
     <h2 class="h1 my-5">Nos derniers arrivants</h2>
 

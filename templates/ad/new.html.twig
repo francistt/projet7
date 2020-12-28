@@ -4,7 +4,7 @@
 
 {% form_theme form 'ad/_collection.html.twig' %}
 
-{% block body %}
+{% block content %}
 
     <div class="container">
         <h1 class="my-5">Créer une nouvelle annonce</h1>
@@ -28,7 +28,6 @@
                     <hr>
                     {{ form_row(form.introduction) }}
                     {{ form_row(form.content) }}
-                    {{ form_row(form.slug) }}
                 </div>
             </div>
             <div class="col">
@@ -38,14 +37,14 @@
                     {{ form_row(form.coverImage) }}
                     {{ form_row(form.images) }}
                 </div>
+                <div class="alert alert-success">
+                <h2 class="alert-heading">Sauvegarder mon annonce</h2>
+                    <p>Vous êtes sur le point de créer votre annonce</p>
+                    <button type="submit" class="btn btn-secondary"><i class="fas fa-check"></i>Créer la nouvelle annonce</button>
+                </div>
             </div>
         </div>         
 
-        <div class="alert alert-success clearfix">
-        <h2 class="alert-heading">Sauvegarder mon annonce</h2>
-            <p>Vous êtes sur le point de créer votre annonce</p>
-            <button type="submit" class="btn btn-secondary float-right"><i class="fas fa-check"></i>Créer la nouvelle annonce</button>
-        </div>
         {{ form_end(form) }}
     </div>
 

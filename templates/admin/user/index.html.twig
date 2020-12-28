@@ -2,7 +2,7 @@
 
 {% block title %}Administration des utilisateurs{% endblock %}
 
-{% block body %}
+{% block content %}
     <div class="container-fluid">
         <div class="row">
             <div class="col">
@@ -63,7 +63,6 @@
                         <span class="badge badge-primary badge-pill">{{user.ads | length}}</span>
                     </td>
                     <td>
-                        {#<a href="#" class="btn btn-primary"><i class="fas fa-edit"></i></a>#}
                         <a href="{{ path('admin_users_delete', {'id': user.id}) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>

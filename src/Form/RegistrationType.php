@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
-use App\Form\ApplicationType;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
@@ -12,19 +12,59 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-class RegistrationType extends ApplicationType
+class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstName', TextType::class, $this->getConfiguration("Prénom", "Votre prénom"))
-            ->add('lastName', TextType::class, $this->getConfiguration("Nom", "Votre nom de famille"))
-            ->add('email', EmailType::class, $this->getConfiguration("Email", "Votre adresse email"))
-            ->add('picture', UrlType::class, $this->getConfiguration("Photo de profil", "URL de votre image"))
-            ->add('password', PasswordType::class, $this->getConfiguration("Mot de passe", "Choississez un mot de passe"))
-            ->add('passwordConfirm', PasswordType::class, $this->getConfiguration("Confirmation de mot de passe", "Veuillez confirmer votre mot de passe"))
-            ->add('introduction', TextType::class, $this->getConfiguration("Introduction", "Présentez-vous en quelques mots"))
-            ->add('description', TextareaType::class, $this->getConfiguration("Description détaillée", "Présentez-vous en détails"))
+            ->add('firstName', TextType::class, [
+                'label' => "Prénom",
+                'attr' => [
+                    'placeholder' => "Votre prénom"
+                ]
+            ])
+            ->add('lastName', TextType::class, [
+                'label' => "Nom",
+                'attr' => [
+                    'placeholder' => "Votre nom"
+                ]
+            ])
+            ->add('email', EmailType::class, [
+                'label' => "Email",
+                'attr' => [
+                    'placeholder' => "Votre adresse email"
+                ]
+            ])
+            ->add('picture',  UrlType::class, [
+                'label' => "Photo de profil",
+                'attr' => [
+                    'placeholder' => "URL de votre image"
+                ]
+            ])
+            ->add('password', PasswordType::class, [
+                'label' => "Mot de passe",
+                'attr' => [
+                    'placeholder' => "Choississez un mot de passe"
+                ]
+            ])
+            ->add('passwordConfirm', PasswordType::class, [
+                'label' => "Confirmation de mot de passe",
+                'attr' => [
+                    'placeholder' => "Veuillez confirmer votre mot de passe"
+                ]
+            ])
+            ->add('introduction', TextType::class, [
+                'label' => "Introduction",
+                'attr' => [
+                    'placeholder' => "Présentez-vous en quelques mots"
+                ]
+            ])
+            ->add('description', TextareaType::class, [
+                'label' => "Description",
+                'attr' => [
+                    'placeholder' => "Présentez-vous en détails"
+                ]
+            ])
         ;
     }
 

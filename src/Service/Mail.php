@@ -31,7 +31,7 @@ class Mail
             'Messages' => [
                 [
                     'From' => [
-                        'Email' => "francis@nevertoolate.fr",
+                        'Email' => "europe4strays@nevertoolate.fr",
                         'Name' => "Europ4strays"
                     ],
                     'To' => [

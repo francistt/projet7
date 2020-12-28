@@ -2,17 +2,18 @@
 
 {% block title %}Nous contacter - Europe4strays{% endblock %}
 
-{% block body %}
+{% block content %}
     <div class="container">
         <h2>Nous contacter</h2>
-        <p>N'hésitez pas à prendre contact, nous vous répondrons dans les meilleurs délais</p>
+        <p>Si vous souhaitez adopter un de nos amis, ou si vous souhaitez devenir hôte d'accueil,<br/>
+        n'hésitez pas à prendre contact. Nous vous répondrons dans les meilleurs délais</p>
         {% for label, messages in app.flashes %}
             <div class="alert alert-{{ label }}">{{ message }}</div>
         {% endfor %}
         <div class="row">
             <div class="col-md-8">{{ form(form) }}</div>
             <div class="col-md-4">
-                <strong>EUROPE4STRAYS</strong>
+                <img src="{{ asset('assets/img/favicon.ico') }}" height="18px" alt="icone"> <strong>EUROPE4STRAYS</strong>
                 <hr>
                 Nous sommes aussi sur :</br>
                 <br/>

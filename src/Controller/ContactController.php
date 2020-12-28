@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ContactController extends AbstractController
 {
     /**
-     * @Route("/nous-contacter", name="contact")
+     * @Route("/contact", name="contact")
      */
     public function index(Request $request)
     {
@@ -25,7 +25,7 @@ class ContactController extends AbstractController
             );
         
             $mail = new Mail();
-            $mail->send('francis@nevertoolate.fr', 'Europe4strays', 'Vous avez reçu une nouvelle demande de contact', $form->getData());
+            $mail->send('europe4strays@nevertoolate.fr', 'Europe4strays', 'Vous avez reçu une nouvelle demande de contact', $form->getData());
         }
 
         return $this->render('contact/index.html.twig', [

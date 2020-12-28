@@ -4,11 +4,7 @@
     Devenir Hôte
 {% endblock %}
 
-{% block header %}
-    <h2>voici le header</h2>
-{% endblock %}
-
-{% block body %}
+{% block content %}
     <div class="container">
         <div class="jumbotron mt-3">
         <h1>Devenir famille d'accueil</h1>
@@ -18,7 +14,7 @@
             Vous pouvez vous inscrire via notre formulaire et vous desinscrire, sans autre justification. Vous inscrire ne vous oblige pas à accepter l’animal. Vous validez dans un premier temps le type d’animal et les conditions d’accueil lors de votre inscription et par la suite, lorsque vous êtes sollicité, vous posez les questions nécessaires à l’association et donnez ou non votre accord.<br/>
             Inscrivez-vous au site en cliquant sur le lien suivant et en nous indiquant que vous souhaitez devenir famille d'accueil :<br/>
             
-            <a class="btn btn-primary btn-lg mt-3" href="{{ path('account_register') }}" role="button">Inscription</a>
+            <a class="btn btn-primary btn-lg mt-3" href="{{ path('contact') }}" role="button">Contactez-nous</a>
         
         </div>
     </div>

@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Entity\Ad;
 use App\Form\ImageType;
-use App\Form\ApplicationType;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
@@ -14,14 +14,29 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
-class AdType extends ApplicationType
+class AdType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class, $this->getConfiguration("Nom","Le petit nom"))
-            ->add('type', TextType::class, $this->getConfiguration("Race","Indiquez la race"))
-            ->add('age', IntegerType::class, $this->getConfiguration("Age", "Indiquez l'âge"))
+            ->add('name', TextType::class, [
+                'label' => 'Nom :',
+                'attr' => [
+                    'placeholder' => "Le petit nom de l'animal"
+                ]
+            ])
+            ->add('type', TextType::class, [
+                'label' => 'Race :',
+                'attr' => [
+                    'placeholder' => "Indiquez la race de l'animal"
+                ]
+            ])
+            ->add('age', IntegerType::class, [
+                'label' => 'Son age :',
+                'attr' => [
+                    'placeholder' => "Indiquez son âge"
+                ]
+            ])
             ->add('sexe', ChoiceType::class, [
                 'label' =>"Genre",
                 'choices' => array_flip([
@@ -31,25 +46,42 @@ class AdType extends ApplicationType
                 'expanded' => true
             ])
             ->add('size', ChoiceType::class, [
-                'label' =>"Taille",
+                'label' =>"Sa taille :",
                 'choices' => array_flip([
                     'Petit',
                     'Moyen',
                     'Grand'
                 ]),   
             ])
-            ->add('city', TextType::class, $this->getConfiguration("Lieu", "Indiquez une ville"))
-            ->add('introduction', TextType::class, $this->getConfiguration("Introduction", "Donnez une description globale de l'annonce"))
-            ->add('content', TextareaType::class, $this->getConfiguration("Description détaillée", "Mettre le contenu de l'annonce"))
-            ->add('slug', TextType::class, $this->getConfiguration("Adresse web", "Taper l'adresse web (automatique", ['required' => false]))
-            ->add('coverImage', UrlType::class, $this->getConfiguration("URL de l'image principale", "Donnez l'adresse d'une image"))
-            ->add('images', CollectionType::class,
-            [
+            ->add('city', TextType::class, [
+                'label' => 'Lieu où il se trouve :',
+                'attr' => [
+                    'placeholder' => "Indiquez une ville"
+                ]
+            ])
+            ->add('introduction', TextType::class, [
+                'label' => 'Introduction :',
+                'attr' => [
+                    'placeholder' => "Donnez une description globale de l'animal"
+                ]
+            ])
+            ->add('content', TextareaType::class, [
+                'label' => 'Description détaillée :',
+                'attr' => [
+                    'placeholder' => "Décrivez le en détail"
+                ]
+            ])
+            ->add('coverImage', UrlType::class, [
+                'label' => "URL de l'image principale :",
+                'attr' => [
+                    'placeholder' => "Donnez l'adresse d'une image"
+                ]
+            ])
+            ->add('images', CollectionType::class, [
                 'entry_type' => ImageType::class,
                 'allow_add' => true,
                 'allow_delete' => true
-            ]
-            )
+                ])
             ;
     }
 

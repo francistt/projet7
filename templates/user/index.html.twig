@@ -2,7 +2,7 @@
 
 {% block title %}Page de {{user.fullName}}{% endblock %}
 
-{% block body %}
+{% block content %}
 
     <div class="containter">
         <div class="row align-items-center mb-4">
@@ -23,8 +23,10 @@
         </div>
 
         {{user.description | raw}}
-        <a href="mailto:{{user.email}}" class="btn btn-info">{{user.email}}</a>
-        <a href="tel:{{user.phone}}" class="btn btn-info">{{user.phone}}</a>
+        <a href="mailto:{{user.email}}" class="btn btn-info">Email : {{user.email}}</a>
+        {% if user.phone != null %}
+            <a href="tel:{{user.phone}}" class="btn btn-info">Téléphone : {{user.phone}}</a>
+        {% endif %}
         <hr>
 
         <h2>Les annonces de {{user.fullName}}</h2>

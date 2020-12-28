@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Service\Mail;
 use App\Form\AccountType;
 use App\Entity\PasswordUpdate;
 use App\Form\RegistrationType;
@@ -67,9 +68,13 @@ class AccountController extends AbstractController
             $manager->persist($user);
             $manager->flush();
 
+            $mail = new Mail();
+            $content = "Bonjour ".$user->getFirstName()."<br/>Bienvenue sur Europe4Strays<br><br/>";
+            $mail->send($user->getEmail(), $user->getFirstName(), 'Bienvenue sur Europe4strays', $content);
+
             $this->addFlash(
-                'success',
-                'Votre compte a bien été créé ! Vous pouvez maintenant vous connecter !'
+                "success",
+                "Votre inscription s'est correctement déroulée. Vous pouvez dès à présent vous connecter à votre compte."
             );
 
             return $this->redirectToRoute('account_login');

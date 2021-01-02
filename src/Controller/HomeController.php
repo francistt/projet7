@@ -2,22 +2,33 @@
 
 namespace App\Controller;
 
+use App\Entity\WelcomePage;
 use App\Repository\AdRepository;
-use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController {
 
+    private $entityManager;
+
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
 
     /**
      * @Route("/", name="homepage")
      */
-    public function home(AdRepository $adRepo, UserRepository $userRepo){
+    public function home(AdRepository $adRepo){
+
+        $welcomePages = $this->entityManager->getRepository(WelcomePage::class)->findAll();
+
 
         return $this->render(
             'home.html.twig',
             [
+                'welcomePages' => $welcomePages,
                 'ads' => $adRepo->findLastAds(3)
             ]
         );
